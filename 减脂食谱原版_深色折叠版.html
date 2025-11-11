@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>减脂食谱整理版（可折叠+深色模式）</title>
+  <style>
+    :root {
+      --bg-light: #f8fafc;
+      --card-light: #ffffff;
+      --text-light: #0f172a;
+      --bg-dark: #0f172a;
+      --card-dark: #1e293b;
+      --text-dark: #f8fafc;
+      --accent: #16a34a;
+      --border-light: #e2e8f0;
+      --border-dark: #334155;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", sans-serif;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    body.dark header {
+      background: rgba(15,23,42,0.8);
+      border-color: var(--border-dark);
+    }
+    .container { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+    h1 { font-size: 28px; color: var(--accent); }
+    h2 { font-size: 22px; margin-top: 20px; }
+    details { margin: 12px 0; border-radius: 12px; overflow: hidden; }
+    summary {
+      font-size: 18px;
+      font-weight: bold;
+      background: var(--accent);
+      color: white;
+      padding: 10px 16px;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card-light);
+      border: 1px solid var(--border-light);
+    }
+    body.dark table {
+      background: var(--card-dark);
+      border-color: var(--border-dark);
+    }
+    th, td {
+      border: 1px solid var(--border-light);
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+    body.dark th, body.dark td {
+      border-color: var(--border-dark);
+    }
+    th { background: #e2e8f0; text-align: left; }
+    body.dark th { background: #334155; }
+    .toggle-btn {
+      cursor: pointer;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🥗 减脂食谱整理版</h1>
+    <button class="toggle-btn" onclick="toggleMode()">切换深色模式</button>
+  </header>
+  <div class="container">
+
+    <details open>
+      <summary>使用说明</summary>
+      <ul>
+        <li>未指定数量的食物（蔬菜、水果、瘦肉）可吃到饱。</li>
+        <li>必须按计划执行，中途停止需从头开始。</li>
+        <li>饥饿可加餐：黄瓜、西红柿、生菜、胡萝卜；与正餐间隔 2 小时。</li>
+        <li>每天保持足够饮水，可饮无糖茶或黑咖啡。</li>
+        <li>禁食炸鸡与羊肉，可少量加盐（高血压者忌）。</li>
+        <li>蔬菜沙拉避免高脂调料。</li>
+        <li>茅屋芝士推荐食用。</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>第一周</summary>
+      <table>
+        <tr><th>星期</th><th>早餐</th><th>午餐</th><th>晚餐</th></tr>
+        <tr><td>周一</td><td>半个葡萄柚/橙子 + 1–2 个鸡蛋</td><td>一种水果吃到饱</td><td>烤/煎低脂肉吃到饱</td></tr>
+        <tr><td>周二</td><td>同周一</td><td>鸡肉 + 西红柿 + 橙子/葡萄柚</td><td>2 个鸡蛋 + 面包 + 沙拉</td></tr>
+        <tr><td>周三</td><td>同周一</td><td>茅屋芝士 + 面包 + 西红柿</td><td>烤/煎肉</td></tr>
+        <tr><td>周四</td><td>同周一</td><td>水果吃到饱</td><td>肉 + 蔬菜沙拉</td></tr>
+        <tr><td>周五</td><td>同周一</td><td>2 个鸡蛋 + 水煮蔬菜</td><td>鱼 + 沙拉 + 水果</td></tr>
+      </table>
+    </details>
+
+    <details>
+      <summary>第二周</summary>
+      <table>
+        <tr><th>星期</th><th>早餐</th><th>午餐</th><th>晚餐</th></tr>
+        <tr><td>周一</td><td>同第一周</td><td>2 个鸡蛋 + 沙拉</td><td>2 个鸡蛋 + 水果</td></tr>
+        <tr><td>周二</td><td>同上</td><td>烤/煎肉 + 沙拉</td><td>同上</td></tr>
+        <tr><td>周三</td><td>同上</td><td>肉 + 黄瓜不限</td><td>2 个鸡蛋 + 蔬菜</td></tr>
+      </table>
+    </details>
+
+    <details>
+      <summary>第三周（全天同食）</summary>
+      <table>
+        <tr><th>星期</th><th>内容</th></tr>
+        <tr><td>周一</td><td>混合水果</td></tr>
+        <tr><td>周二</td><td>水煮蔬菜 + 沙拉</td></tr>
+        <tr><td>周三</td><td>水果 + 蔬菜 + 沙拉</td></tr>
+        <tr><td>周四</td><td>鱼/虾 + 沙拉</td></tr>
+      </table>
+    </details>
+
+    <details>
+      <summary>第四周（可自由分配）</summary>
+      <table>
+        <tr><th>星期</th><th>内容</th></tr>
+        <tr><td>周一</td><td>250g 鸡肉 + 西红柿 + 黄瓜 + 面包 + 水果</td></tr>
+        <tr><td>周二</td><td>250g 鸡肉 + 蔬菜 + 2 鸡蛋 + 水果</td></tr>
+      </table>
+    </details>
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
