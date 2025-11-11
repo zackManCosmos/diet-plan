@@ -3,155 +3,156 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>减脂食谱整理版（可折叠+深色模式）</title>
+  <title>减脂食谱整理版（完整 · 可折叠 · 深色模式）</title>
   <style>
     :root {
       --bg-light: #f8fafc;
       --card-light: #ffffff;
       --text-light: #0f172a;
       --bg-dark: #0f172a;
-      --card-dark: #1e293b;
+      --card-dark: #111827;
       --text-dark: #f8fafc;
       --accent: #16a34a;
-      --border-light: #e2e8f0;
-      --border-dark: #334155;
+      --border-light: #e5e7eb;
+      --border-dark: #374151;
     }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: "Segoe UI", "PingFang SC", sans-serif;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
       background: var(--bg-light);
       color: var(--text-light);
-      transition: background 0.3s, color 0.3s;
+      transition: background .3s,color .3s;
+      line-height: 1.6;
     }
-    body.dark {
-      background: var(--bg-dark);
-      color: var(--text-dark);
-    }
+    body.dark { background: var(--bg-dark); color: var(--text-dark); }
     header {
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(6px);
+      position: sticky; top: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 12px 16px;
+      background: rgba(255,255,255,.85); backdrop-filter: blur(6px);
       border-bottom: 1px solid var(--border-light);
-      padding: 10px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
-    body.dark header {
-      background: rgba(15,23,42,0.8);
-      border-color: var(--border-dark);
+    body.dark header { background: rgba(17,24,39,.85); border-color: var(--border-dark); }
+    .container { max-width: 980px; margin: 24px auto; padding: 0 16px; }
+    h1 { margin: 0; font-size: 22px; color: var(--accent); }
+    .btn {
+      cursor: pointer; border: 1px solid var(--border-light);
+      background: var(--card-light); color: #111; padding: 6px 12px; border-radius: 10px;
     }
-    .container { max-width: 900px; margin: 24px auto; padding: 0 16px; }
-    h1 { font-size: 28px; color: var(--accent); }
-    h2 { font-size: 22px; margin-top: 20px; }
-    details { margin: 12px 0; border-radius: 12px; overflow: hidden; }
+    body.dark .btn { border-color: var(--border-dark); background: var(--card-dark); color: var(--text-dark); }
+    details { margin: 14px 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-light); }
+    body.dark details { border-color: var(--border-dark); }
     summary {
-      font-size: 18px;
-      font-weight: bold;
-      background: var(--accent);
-      color: white;
-      padding: 10px 16px;
-      cursor: pointer;
+      list-style: none; background: var(--accent); color: #fff;
+      padding: 10px 14px; font-weight: 700; cursor: pointer; user-select: none;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--card-light);
-      border: 1px solid var(--border-light);
-    }
-    body.dark table {
-      background: var(--card-dark);
-      border-color: var(--border-dark);
-    }
-    th, td {
-      border: 1px solid var(--border-light);
-      padding: 8px 10px;
-      vertical-align: top;
-    }
-    body.dark th, body.dark td {
-      border-color: var(--border-dark);
-    }
-    th { background: #e2e8f0; text-align: left; }
-    body.dark th { background: #334155; }
-    .toggle-btn {
-      cursor: pointer;
-      border: none;
-      padding: 6px 10px;
-      border-radius: 8px;
-      background: var(--accent);
-      color: white;
-      font-size: 14px;
-    }
+    summary::-webkit-details-marker { display: none; }
+    .card { padding: 12px; background: var(--card-light); }
+    body.dark .card { background: var(--card-dark); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid var(--border-light); padding: 10px; vertical-align: top; }
+    body.dark th, body.dark td { border-color: var(--border-dark); }
+    th { background: #eef2ff; text-align: left; }
+    body.dark th { background: #1f2937; }
+    .tips { font-size: 13px; opacity: .8; }
+    footer { margin: 24px 0; font-size: 12px; opacity: .8; }
+    @media print { header { position: static } details { border:none } summary { background: none; color: inherit; padding:0; font-size: 20px } .card { padding:0 } }
   </style>
 </head>
 <body>
   <header>
-    <h1>🥗 减脂食谱整理版</h1>
-    <button class="toggle-btn" onclick="toggleMode()">切换深色模式</button>
+    <h1>🥗 减脂食谱整理版（完整）</h1>
+    <div>
+      <button class="btn" onclick="toggleMode()">切换深色模式</button>
+    </div>
   </header>
-  <div class="container">
 
+  <div class="container">
     <details open>
       <summary>使用说明</summary>
-      <ul>
-        <li>未指定数量的食物（蔬菜、水果、瘦肉）可吃到饱。</li>
-        <li>必须按计划执行，中途停止需从头开始。</li>
-        <li>饥饿可加餐：黄瓜、西红柿、生菜、胡萝卜；与正餐间隔 2 小时。</li>
-        <li>每天保持足够饮水，可饮无糖茶或黑咖啡。</li>
-        <li>禁食炸鸡与羊肉，可少量加盐（高血压者忌）。</li>
-        <li>蔬菜沙拉避免高脂调料。</li>
-        <li>茅屋芝士推荐食用。</li>
-      </ul>
+      <div class="card">
+        <ul>
+          <li>未指定数量的食物（蔬菜、水果、瘦肉）可吃到饱；“水煮蔬菜”= 白水煮、无油。</li>
+          <li>必须按计划执行，中途停止需从第一天开始。</li>
+          <li>加餐（≥2 小时后）：黄瓜/西红柿/生菜/胡萝卜，单次仅选一种。</li>
+          <li>可饮无糖茶/黑咖啡/代糖饮品；无糖汽水每天 1–2 瓶内。</li>
+          <li>肉类以鸡肉、瘦牛肉为主；禁止炸鸡（去皮也不行）、禁止羊肉；可少量加盐（高血压者忌）。</li>
+          <li>茅屋芝士（cottage cheese）推荐；没有可用牛奶替代。蔬菜沙拉避免高脂调料。</li>
+        </ul>
+        <p class="tips">若进行第二轮：重复两次第一周 → 直接跳到第四周。配合运动可适当增加摄入（鸡胸肉/全麦面包等）。</p>
+      </div>
     </details>
 
     <details>
       <summary>第一周</summary>
-      <table>
-        <tr><th>星期</th><th>早餐</th><th>午餐</th><th>晚餐</th></tr>
-        <tr><td>周一</td><td>半个葡萄柚/橙子 + 1–2 个鸡蛋</td><td>一种水果吃到饱</td><td>烤/煎低脂肉吃到饱</td></tr>
-        <tr><td>周二</td><td>同周一</td><td>鸡肉 + 西红柿 + 橙子/葡萄柚</td><td>2 个鸡蛋 + 面包 + 沙拉</td></tr>
-        <tr><td>周三</td><td>同周一</td><td>茅屋芝士 + 面包 + 西红柿</td><td>烤/煎肉</td></tr>
-        <tr><td>周四</td><td>同周一</td><td>水果吃到饱</td><td>肉 + 蔬菜沙拉</td></tr>
-        <tr><td>周五</td><td>同周一</td><td>2 个鸡蛋 + 水煮蔬菜</td><td>鱼 + 沙拉 + 水果</td></tr>
-      </table>
+      <div class="card">
+        <table>
+          <tr><th>星期</th><th>早餐</th><th>午餐</th><th>晚餐</th></tr>
+          <tr><td>周一</td><td>半个葡萄柚/橙子 + 1–2 个煮鸡蛋</td><td>一种水果吃到饱（禁大枣、葡萄、芒果、香蕉）</td><td>烤/煎低脂肉吃到饱</td></tr>
+          <tr><td>周二</td><td>同周一早餐</td><td>鸡肉 + 西红柿 + 橙子/葡萄柚</td><td>2 个鸡蛋 + 全麦面包 + 橙子/葡萄柚 + 蔬菜沙拉</td></tr>
+          <tr><td>周三</td><td>同周一早餐</td><td>茅屋芝士 + 烤面包 + 西红柿</td><td>烤/煎低脂肉吃到饱</td></tr>
+          <tr><td>周四</td><td>同周一早餐</td><td>一种水果吃到饱</td><td>烤/煎低脂肉 + 蔬菜沙拉</td></tr>
+          <tr><td>周五</td><td>同周一早餐</td><td>2 个鸡蛋 + 水煮蔬菜</td><td>鱼肉（白煮/煎烤） + 蔬菜沙拉 + 橙子/葡萄柚</td></tr>
+          <tr><td>周六</td><td>同周一早餐</td><td>一种水果吃到饱</td><td>烤/煎肉 + 蔬菜沙拉</td></tr>
+          <tr><td>周日</td><td>同周一早餐</td><td>鸡肉（去皮） + 水煮蔬菜 + 西红柿 + 橙子/葡萄柚</td><td>水煮蔬菜</td></tr>
+        </table>
+      </div>
     </details>
 
     <details>
       <summary>第二周</summary>
-      <table>
-        <tr><th>星期</th><th>早餐</th><th>午餐</th><th>晚餐</th></tr>
-        <tr><td>周一</td><td>同第一周</td><td>2 个鸡蛋 + 沙拉</td><td>2 个鸡蛋 + 水果</td></tr>
-        <tr><td>周二</td><td>同上</td><td>烤/煎肉 + 沙拉</td><td>同上</td></tr>
-        <tr><td>周三</td><td>同上</td><td>肉 + 黄瓜不限</td><td>2 个鸡蛋 + 蔬菜</td></tr>
-      </table>
+      <div class="card">
+        <table>
+          <tr><th>星期</th><th>早餐</th><th>午餐</th><th>晚餐</th></tr>
+          <tr><td>周一</td><td>同第一周早餐</td><td>2 个煮鸡蛋 + 蔬菜沙拉</td><td>2 个煮鸡蛋 + 橙子/葡萄柚</td></tr>
+          <tr><td>周二</td><td>同上</td><td>低脂烤/煎肉吃到饱 + 蔬菜沙拉</td><td>2 个煮鸡蛋 + 橙子/葡萄柚</td></tr>
+          <tr><td>周三</td><td>同上</td><td>低脂烤/煎肉吃到饱 + 黄瓜不限量</td><td>2 个煮鸡蛋 + 水煮蔬菜</td></tr>
+          <tr><td>周四</td><td>同上</td><td>2 个煮鸡蛋 + 茅屋芝士 + 水煮蔬菜</td><td>2 个煮鸡蛋 + 西红柿 + 水煮蔬菜</td></tr>
+          <tr><td>周五</td><td>同上</td><td>鱼/虾（白煮或煎烤）</td><td>2 个煮鸡蛋 + 水煮蔬菜</td></tr>
+          <tr><td>周六</td><td>同上</td><td>低脂烤/煎肉吃到饱 + 西红柿 + 橙子/葡萄柚</td><td>混合水果吃到饱（禁大枣、葡萄、芒果、香蕉）</td></tr>
+          <tr><td>周日</td><td>同上</td><td>鸡肉（去皮） + 水煮蔬菜 + 西红柿 + 橙子/葡萄柚</td><td>鸡肉（去皮） + 西红柿 + 橙子/葡萄柚</td></tr>
+        </table>
+      </div>
     </details>
 
     <details>
       <summary>第三周（全天同食）</summary>
-      <table>
-        <tr><th>星期</th><th>内容</th></tr>
-        <tr><td>周一</td><td>混合水果</td></tr>
-        <tr><td>周二</td><td>水煮蔬菜 + 沙拉</td></tr>
-        <tr><td>周三</td><td>水果 + 蔬菜 + 沙拉</td></tr>
-        <tr><td>周四</td><td>鱼/虾 + 沙拉</td></tr>
-      </table>
+      <div class="card">
+        <table>
+          <tr><th>星期</th><th>内容</th></tr>
+          <tr><td>周一</td><td>混合水果（禁大枣、芒果、葡萄、香蕉）</td></tr>
+          <tr><td>周二</td><td>水煮蔬菜（除土豆） + 蔬菜沙拉</td></tr>
+          <tr><td>周三</td><td>混合水果 + 水煮蔬菜（禁大枣/芒果/葡萄/香蕉/土豆） + 蔬菜沙拉</td></tr>
+          <tr><td>周四</td><td>鱼或虾（白煮/煎烤） + 蔬菜沙拉</td></tr>
+          <tr><td>周五</td><td>烤/煎肉或鸡肉 + 水煮蔬菜</td></tr>
+          <tr><td>周六</td><td>一种水果吃到饱（禁大枣、芒果、葡萄、香蕉）</td></tr>
+          <tr><td>周日</td><td>同上</td></tr>
+        </table>
+      </div>
     </details>
 
-    <details>
+    <details open>
       <summary>第四周（可自由分配）</summary>
-      <table>
-        <tr><th>星期</th><th>内容</th></tr>
-        <tr><td>周一</td><td>250g 鸡肉 + 西红柿 + 黄瓜 + 面包 + 水果</td></tr>
-        <tr><td>周二</td><td>250g 鸡肉 + 蔬菜 + 2 鸡蛋 + 水果</td></tr>
-      </table>
+      <div class="card">
+        <table>
+          <tr><th>星期</th><th>内容</th></tr>
+          <tr><td>周一</td><td>250g 鸡肉（白煮/煎烤） + 3 个西红柿 + 4 根黄瓜 + 1 片烤面包 + 1 个橙子/苹果/葡萄柚</td></tr>
+          <tr><td>周二</td><td>250g 鸡肉（白煮/煎烤） + 3 个西红柿 + 4 根黄瓜 + 2 个煮鸡蛋 + 1 个橙子/葡萄柚 + 生菜</td></tr>
+          <tr><td>周三</td><td>2 片鸡胸肉 + 2 勺茅屋芝士 + 1 片烤面包 + 2 个西红柿 + 2 根黄瓜 + 1 个橙子/葡萄柚 + 1 杯酸奶</td></tr>
+          <tr><td>周四</td><td>1 盒金枪鱼（不含油） + 1 勺茅屋芝士 + 1 片烤全麦面包 + 2 个西红柿 + 1 份水煮蔬菜 + 1 个橙子/葡萄柚</td></tr>
+          <tr><td>周五</td><td>250g 鸡肉（白煮/煎烤） + 3 个西红柿 + 4 根黄瓜 + 1 片烤全麦面包 + 1 个橙子/葡萄柚 + 1 盒金枪鱼（不含油）</td></tr>
+          <tr><td>周六</td><td>200g 肉（白煮/煎烤） + 3 个西红柿 + 4 根黄瓜 + 1 片烤全麦面包 + 1 个橙子/葡萄柚/苹果</td></tr>
+          <tr><td>周日</td><td>1 勺茅屋芝士 + 2 个西红柿 + 2 根黄瓜 + 1 份水煮蔬菜 + 1 片烤全麦面包 + 1 个橙子/葡萄柚 + 1 盒金枪鱼（不含油）</td></tr>
+        </table>
+      </div>
     </details>
+
+    <footer>© 食谱整理 | 如出现不适请停止并咨询专业人士。</footer>
   </div>
 
   <script>
-    function toggleMode() {
-      document.body.classList.toggle('dark');
-    }
+    function toggleMode(){ document.body.classList.toggle('dark'); }
   </script>
 </body>
 </html>
